@@ -1,4 +1,8 @@
+__pycache__
+vector_store_cache/
+.env
+notebooks/
+venv/
 Policy documents/
 tests/
 results/
-.env
