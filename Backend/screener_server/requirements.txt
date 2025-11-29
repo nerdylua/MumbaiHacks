@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+selenium
+undetected-chromedriver
+requests
+google-genai
+setuptools1`
