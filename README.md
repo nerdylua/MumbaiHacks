@@ -2,8 +2,8 @@
 
 End-to-end Retrieval-Augmented Generation (RAG) stack for insurance policy understanding. The frontend consumes a trio of backend services—RAG MCP server, computer-use MCP server, and the financial screener server—so keeping those daemons online is the main requirement during development demos.
 
+## Demo of our Solution: [youtube link](https://youtu.be/2kKybRsVwoI)
 ---
-## Demo of our Solution: [youtube](https://youtu.be/2kKybRsVwoI)
 
 ## Repo Highlights
 - **Backend (`Backend/`)** – FastMCP RAG server (`run_mcp.py`), computer-use MCP server (`run_computer_mcp.py`), unified screener API (`screener_server/`), plus the FastAPI RAG service and policy decision-tree tooling.
