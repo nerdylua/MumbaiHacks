@@ -1,6 +1,7 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Image from 'next/image';
 
 interface ImageDisplayProps {
   imageUrl: string;
@@ -14,7 +15,7 @@ export function ImageDisplay({ imageUrl, prompt }: ImageDisplayProps) {
         <CardTitle>Generated Image</CardTitle>
       </CardHeader>
       <CardContent>
-        <img src={imageUrl} alt={prompt} className="rounded-lg" />
+        <Image src={imageUrl} alt={prompt} className="rounded-lg" width={100} height={100} />
         <p className="text-sm text-muted-foreground mt-2">{prompt}</p>
       </CardContent>
     </Card>

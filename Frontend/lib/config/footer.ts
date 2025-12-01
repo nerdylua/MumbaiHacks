@@ -19,8 +19,8 @@ export interface FooterConfig {
 
 export const footerConfig: FooterConfig = {
   brand: {
-    title: "NextJS Template",
-    description: "NextJS Template"
+    title: "Sampada AI",
+    description: "Sampada AI is a platform for AI-powered analysis of company data."
   },
   sections: [
     {
@@ -60,5 +60,5 @@ export const footerConfig: FooterConfig = {
       ]
     }
   ],
-  copyright: `© ${new Date().getFullYear()} NextJS Template. All rights reserved.`
+  copyright: `© ${new Date().getFullYear()} Sampada AI. All rights reserved.`
 }

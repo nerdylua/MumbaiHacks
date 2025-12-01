@@ -10,7 +10,7 @@ export const screenerQueryAgent = tool({
   parameters: screenerQueryAgentParameters,
   execute: async ({ query }) => {
     try {
-      const response = await fetch('http://127.0.0.1:8003/query_agent', {
+      const response = await fetch('http://127.0.0.1:8080/query_agent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

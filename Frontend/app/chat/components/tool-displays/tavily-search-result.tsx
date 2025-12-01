@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { TavilySearchResponse, TavilySearchResult as TavilySearchResultType } from '@/app/chat/types';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import Image from 'next/image';
 
 // The component for rendering the Tavily search results
 export function TavilySearchResult({ data }: { data: TavilySearchResponse }) {
@@ -45,7 +46,7 @@ export function TavilySearchResult({ data }: { data: TavilySearchResponse }) {
                 >
                   <div className="h-32 bg-zinc-200 dark:bg-zinc-800 relative">
                     {data.images && data.images[index] ? (
-                      <img
+                      <Image
                         src={data.images[index].url}
                         alt={result.title}
                         className="h-full w-full object-cover"

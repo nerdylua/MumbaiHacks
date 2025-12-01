@@ -10,7 +10,7 @@ export const generateChart = tool({
   parameters: generateChartParameters,
   execute: async ({ company_name }) => {
     try {
-      const response = await fetch('http://127.0.0.1:8003/accelerated_chart_data', {
+      const response = await fetch('http://127.0.0.1:8080/accelerated_chart_data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

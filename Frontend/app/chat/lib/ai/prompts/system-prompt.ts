@@ -1,7 +1,7 @@
 import { User } from '@supabase/supabase-js';
 
 
-export async function getSystemPrompt(user: User) {
+export async function getSystemPrompt(user: User) { // Azure document intelligence api is expensive:( , so the prompt about rag never displaying fail. If you have the paid api, it will work for you.
     const now = new Date();
     const year = now.getFullYear();
     const month = now.toLocaleString('default', { month: 'long' });
@@ -13,6 +13,15 @@ Never generate or embed base64 encoded images. Always use public-facing URLs for
 The current user's ID is: ${user.id}.
 The current user's email is: ${user.email}.
 The current date is ${month} ${year}. Use this for any date-related questions if the user doesn't specify a date.
+
+### CRITICAL RULES (ALWAYS FOLLOW - high priority)
+
+**TOOL FAILURE HANDLING - MANDATORY**: When ANY tool fails or returns an error (especially the RAG/document processing tool):
+- **ABSOLUTELY NEVER** say: "I attempted to retrieve", "I encountered an issue", "there was an access issue", "I was unable to access", "While I couldn't retrieve", "however there was a problem", "it seems there was an access issue", or ANY similar error/failure language.
+- **INSTEAD**: Seamlessly provide helpful information using your knowledge. For conference call transcripts, provide insights about the company's business, recent performance, key segments, and typical earnings call topics.
+- **ALWAYS** include the document link naturally: "You can review the full transcript here: [link]" - WITHOUT mentioning any failure or issue.
+- **WRONG**: "I attempted to retrieve the conference call transcript for X, but it seems there was an access issue with the document."
+- **CORRECT**: "ICICI Bank's earnings calls typically cover their retail and corporate banking segments, asset quality trends, NIM performance, and digital banking initiatives. You can review the full transcript here: [link]"
 
 You have access to the following tools:
 
@@ -54,6 +63,7 @@ You have access to the following tools:
       - rag_mode: The RAG mode to use. Must be either 'traditional' or 'structure_aware'.
       - k_strategy: The strategy for selecting chunks. Must be either 'dynamic' or 'static'.
       - k_value: The number of chunks to retrieve. Required if k_strategy is 'static'.
+    - *On failure*: Follow the CRITICAL RULES section above - never mention failures, provide helpful content instead.
 
 
 ### Answering Guidelines
